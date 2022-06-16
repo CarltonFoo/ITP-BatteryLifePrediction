@@ -62,9 +62,10 @@ for i in range(num_cells):
 # Summary data
 
 # Available sizes (summary)
-# print("Batch size: " + str(num_cells))
-# print("Cell size: " +
-#       str(len(bat_dict["b1c" + str(num_cells-1)]['summary']['cycle'])))
+summ_batch_size = "Batch size: " + str(num_cells)
+summ_cell_size = "Cell size: " + \
+    str(len(bat_dict["b1c" + str(num_cells-1)]['summary']['cycle']))
+# print(summ_batch_size + "\n" + summ_cell_size)
 
 # Individual cells
 
@@ -138,11 +139,13 @@ def summ_chargetime(batch, cell):
 # Cycles
 
 # Available sizes (cycles) --> The cell size differs here because some data has 752/762/751/1001, might need to trim dataset
-print("Batch size: " + str(num_cells))
-print("Cycle size: " +
-      str(len(bat_dict["b1c" + str(num_cells-1)]['cycles'])))
-print("Cell size: " +
-      str(len(bat_dict["b1c" + str(num_cells-1)]['cycles']['0']['t'])))
+cycles_batch_size = "Batch size: " + str(num_cells)
+cycles_cycle_size = "Cycle size: " + \
+    str(len(bat_dict["b1c" + str(num_cells-1)]['cycles']))
+cycles_cell_size = ("Cell size: " +
+                    str(len(bat_dict["b1c" + str(num_cells-1)]['cycles']['0']['t'])))
+# print(cycles_batch_size + "\n" + cycles_cycle_size + "\n" + cycles_cell_size)
+
 
 # Individual cells
 
