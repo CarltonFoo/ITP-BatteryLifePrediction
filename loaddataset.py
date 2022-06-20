@@ -5,7 +5,7 @@ import numpy as np
 import pickle
 
 # Enter Dataset
-matFilename = './datasets/2018-08-28_batchdata_updated_struct_errorcorrect.mat'
+matFilename = './Data/2018-04-12_batchdata_updated_struct_errorcorrect.mat'
 f = h5py.File(matFilename)
 
 batch = f['batch']
@@ -59,7 +59,7 @@ for i in range(num_cells):
 # print(strlist)
 
 
-# Summary data
+### Summary data ###
 
 # Available sizes (summary)
 summ_batch_size = "Batch size: " + str(num_cells)
@@ -132,11 +132,10 @@ def summ_Tavg(batch, cell):
 def summ_chargetime(batch, cell):
     batch_num = 'b1c' + str(batch-1)
     cell_num = cell-1
-
     print(bat_dict[batch_num]['summary']['chargetime'][cell_num])
 
 
-# Cycles
+### Cycles ###
 
 # Available sizes (cycles) --> The cell size differs here because some data has 752/762/751/1001, might need to trim dataset
 cycles_batch_size = "Batch size: " + str(num_cells)
@@ -148,7 +147,6 @@ cycles_cell_size = ("Cell size: " +
 
 
 # Individual cells
-
 
 def cycles_all(batch, cycle, cell):
     batch_num = 'b1c' + str(batch-1)
@@ -173,7 +171,6 @@ def cycles_t(batch, cycle, cell):
     batch_num = 'b1c' + str(batch-1)
     cycle_num = str(cycle-1)
     cell_num = cell-1
-
     print(bat_dict[batch_num]['cycles'][cycle_num]['t'][cell_num])
 
 
@@ -181,7 +178,6 @@ def cycles_Qd(batch, cycle, cell):
     batch_num = 'b1c' + str(batch-1)
     cycle_num = str(cycle-1)
     cell_num = cell-1
-
     print(bat_dict[batch_num]['cycles'][cycle_num]['Qd'][cell_num])
 
 
@@ -189,7 +185,6 @@ def cycles_Qc(batch, cycle, cell):
     batch_num = 'b1c' + str(batch-1)
     cycle_num = str(cycle-1)
     cell_num = cell-1
-
     print(bat_dict[batch_num]['cycles'][cycle_num]['Qc'][cell_num])
 
 
@@ -197,7 +192,6 @@ def cycles_I(batch, cycle, cell):
     batch_num = 'b1c' + str(batch-1)
     cycle_num = str(cycle-1)
     cell_num = cell-1
-
     print(bat_dict[batch_num]['cycles'][cycle_num]['I'][cell_num])
 
 
@@ -205,7 +199,6 @@ def cycles_V(batch, cycle, cell):
     batch_num = 'b1c' + str(batch-1)
     cycle_num = str(cycle-1)
     cell_num = cell-1
-
     print(bat_dict[batch_num]['cycles'][cycle_num]['V'][cell_num])
 
 
@@ -213,7 +206,6 @@ def cycles_T(batch, cycle, cell):
     batch_num = 'b1c' + str(batch-1)
     cycle_num = str(cycle-1)
     cell_num = cell-1
-
     print(bat_dict[batch_num]['cycles'][cycle_num]['T'][cell_num])
 
 
@@ -221,7 +213,6 @@ def cycles_Tdlin(batch, cycle, cell):
     batch_num = 'b1c' + str(batch-1)
     cycle_num = str(cycle-1)
     cell_num = cell-1
-
     print(bat_dict[batch_num]['cycles'][cycle_num]['Tdlin'][cell_num])
 
 
@@ -229,7 +220,6 @@ def cycles_Qdlin(batch, cycle, cell):
     batch_num = 'b1c' + str(batch-1)
     cycle_num = str(cycle-1)
     cell_num = cell-1
-
     print(bat_dict[batch_num]['cycles'][cycle_num]['Qdlin'][cell_num])
 
 
@@ -237,8 +227,115 @@ def cycles_dQdV(batch, cycle, cell):
     batch_num = 'b1c' + str(batch-1)
     cycle_num = str(cycle-1)
     cell_num = cell-1
-
     print(bat_dict[batch_num]['cycles'][cycle_num]['dQdV'][cell_num])
 
+# cycles_all(46, 120, 740)
 
-cycles_all(46, 120, 740)
+
+# List all keys
+
+def listkeys(obj):
+    "Recursively find all keys in an h5py.Group."
+    keys = (obj.name,)
+    if isinstance(obj, h5py.Group):
+        for key, value in obj.items():
+            if isinstance(value, h5py.Group):
+                keys = keys + listkeys(value)
+            else:
+                keys = keys + (value.name,)
+    return keys
+
+# Return datatype of numpy obj (e.g <u4)
+# def datatype(dtype):
+#     dt = np.dtype(dtype)
+#     print("Byte order is:", dt.byteorder)
+#     print("Size is:", dt.itemsize)
+#     print("Data type is:", dt.name)
+
+
+def battdata(battIndex, full=False, policy=False, policy_readable=True, barcode=False, channelID=False, cycle_life=True, cycles=True, summary=True, Vdlin=True):
+    """
+    Takes in a battery, and returns all its data from the dataset.
+
+    Args:
+        battIndex (int): index of the battery to get data from
+        full (bool, optional): Returns all data of battery if True, else returns a handful of values. Defaults to False.
+        policy (bool, optional): Returns policy if set to True. Defaults to False.
+        policy_readable (bool, optional): Returns policy_readable if set to True. Defaults to True.
+        barcode (bool, optional): Returns barcode if set to True. Defaults to False.
+        channelID (bool, optional): Returns channel ID if set to True. Defaults to False.
+        cycle_life (bool, optional): Returns cycle_life if set to True. Defaults to True.
+        cycles (bool, optional): Returns cycles as an obj if set to True. Defaults to True.
+        summary (bool, optional): Returns summary as an obj if set to True. Defaults to True.
+        Vdlin (bool, optional): Returns Vdlin as arr if set to True. Defaults to True.
+    """
+    print("Info for battery: [" + str(battIndex) + "]")
+    if policy:
+        pol = ""
+        for c in f[batch['policy'][battIndex][0]]:
+            pol = pol + chr(c[0])
+        print("------------------------------------------------")
+        print("Policy: ")
+        print(pol)
+    if policy_readable:
+        polr = ""
+        for c in f[batch['policy_readable'][battIndex][0]]:
+            polr = polr + chr(c[0])
+        print("------------------------------------------------")
+        print("Policy Readable: ")
+        print(polr)
+    if barcode:
+        print("------------------------------------------------")
+        print("Barcode: ")
+        for c in f[batch['barcode'][battIndex][0]]:
+            print(c[0])
+    if channelID:
+        print("------------------------------------------------")
+        print("Channel ID: ")
+        cid = f[batch['channel_id'][battIndex][0]][0][0]
+        print(cid)
+    if cycle_life:
+        print("------------------------------------------------")
+        print("Cycle Life: ")
+        cycLife = f[batch['cycle_life'][battIndex][0]][0][0]
+        print(cycLife)
+    if cycles:
+        print("------------------------------------------------")
+        print("Cycles: ")
+        cycles = f[batch['cycles'][battIndex][0]]
+        cycleDict = {}
+        if full:
+            for s in cycles:
+                cycleDict[s] = f[cycles[s][0][0]][0]
+        else:
+            for s in cycles:
+                cycleDict[s] = f[cycles[s][0][0]][0, :15]
+        print(cycleDict)
+    if summary:
+        print("------------------------------------------------")
+        print("Summary: ")
+        batSum = f[batch['summary'][battIndex][0]]
+        sumDict = {}
+        if full:
+            for col in batSum:
+                sumDict[col] = batSum[col][0]
+        else:
+            for col in batSum:
+                sumDict[col] = batSum[col][0, :15]
+        print(sumDict)
+    if Vdlin:
+        print("------------------------------------------------")
+        print("Vdlin: ")
+        vdl = f[batch['Vdlin'][battIndex][0]][0]
+        print(vdl)
+
+
+print("------------------------------------------------")
+print("KEYS: ")
+print(listkeys(batch))
+
+print("------------------------------------------------")
+print("DATA: ")
+
+battdata(0, full=False, policy=True, policy_readable=True, barcode=True,
+         channelID=True, cycle_life=True, cycles=False, summary=False, Vdlin=False)
