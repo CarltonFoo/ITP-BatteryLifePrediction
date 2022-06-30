@@ -21,14 +21,14 @@ Python 3.10+
 9. Scroll and observe the results.
 
 ## Notes
-Signature Errors, not available in python (must use MATLAB):
-finaldata_4
-finaldata_6and8
-finaldata_all
+ExportFeatures.ipynb:
+> matFilename should be edited according to your filename and file path with the content of the "Data" folder.  
+> E.g. matFilename = './Data/filename.mat'
 
-Testable mat files (via h5py):
-2018-08-28_batchdata_updated_struct_errorcorrect
-2018-04-03_varcharge_batchdata_updated_struct_errorcorrect
+Signature Errors, not available in python (must use MATLAB):
+> finaldata_4  
+> finaldata_6and8  
+> finaldata_all
 
 Credits for h5py code setup:
-https://github.com/rdbraatz/data-driven-prediction-of-battery-cycle-life-before-capacity-degradation
+> https://github.com/rdbraatz/data-driven-prediction-of-battery-cycle-life-before-capacity-degradation
