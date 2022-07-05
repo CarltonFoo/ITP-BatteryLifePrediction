@@ -15,10 +15,11 @@ Python 3.10+
 > `python3 -m venv .venv` *OR*  
 > `python -m venv .venv` *OR*  
 > `c:\Python310\python -m venv c:\path\to\project\folder\.venv`  
-6. Open the jupyter notebooks for the respective models, DischargeModel or VarianceModel, in your preferred IDE. **We recommend VSCode**
+6. Open the jupyter notebook `ExportFeatures.ipynb`, in your preferred IDE. **We recommend VSCode**
 7. In the upper right corner of the notebook, select the environment as ".venv" if it is currently something else like "Python 3.10 64 bit"
-8. Click "Run All" at the top. The notebook should check and install required dependencies into the virtual environment.
-9. Scroll and observe the results.
+8. Click "Run All" at the top. The notebook should check and install required dependencies into the virtual environment, then read the MATLAB data files and extract their flattened features to a new file in the Data folder called `features_combined.csv`.
+9. Open the jupyter notebooks for the respective models, DischargeModel or VarianceModel. Repeat steps 7 and 8 with the model's jupyter notebook if necessary; these notebooks will read from the `features_combined.csv` file for training data.
+10. Scroll and observe the results.
 
 ## Notes
 ExportFeatures.ipynb:
