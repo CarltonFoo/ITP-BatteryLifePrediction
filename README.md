@@ -27,6 +27,7 @@ This repository will go through the first two steps for this project.
 # Requirements
 
 Python 3.10+
+
 An environment to open and run Jupyter Notebooks
 
 <br />
@@ -69,7 +70,7 @@ An environment to open and run Jupyter Notebooks
 <a name="setup"></a>
 
 # Setup and Data Preperation
-### In this step we will download our dataset and extract its features.
+In this step we will download our dataset and extract its features.
 
 1. Clone this repository
 2. Download the `2017-05-12_batchdata_updated_struct_errorcorrect.mat` and `2017-06-30_batchdata_updated_struct_errorcorrect.mat` datasets from [here](https://data.matr.io/1/projects/5c48dd2bc625d700019f3204).
