@@ -123,6 +123,10 @@ QDiffLinVar     | Linearly Interpolated Var(QD100-QD10)
 1. Open the jupyter notebooks for the respective models, DischargeModel or VarianceModel. Ensure the environment is `venv`, and click `Run All` at the top; these notebooks will read from the `./features_combined.csv` file for training data.
 2. Scroll and observe the results. Further explaination of the model can be found within the jupyter notebook as comments. 
 
+> ## Special Instructions for Transfer Learning Discharge Model (DischargeModelTransfer.ipynb)
+> `DischargeModel.ipynb` must be executed in its entirety first to generate the base discharge model definition files.  
+> The transfer learning discharge model depends upon the former file to train the base model.
+
 <br />
 
 <a name="notes"></a>
