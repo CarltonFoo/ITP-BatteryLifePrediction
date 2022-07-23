@@ -12,12 +12,15 @@ This repository will go through the first two steps for this project.
 <br />
 
 # Table of Contents  
+- [Battery Lifetime Prediction with Advanced Machine Learning](#battery-lifetime-prediction-with-advanced-machine-learning)
+    - [ICT3111 Integrated Team Project, Team 19](#ict3111-integrated-team-project-team-19)
+- [Table of Contents](#table-of-contents)
 - [Requirements](#requirements)
-- [Code-base Structure](#codebase)
-- [Setup and Data Preparation](#setup)
-- [Data Structure](#data)
+- [Code-base Structure](#code-base-structure)
+- [Setup and Data Preperation](#setup-and-data-preperation)
+- [Data](#data)
 - [Usage](#usage)
-- [Additional Notes](#notes)
+- [Additional Notes](#additional-notes)
 
 
 <a name="requirements"></a>
@@ -84,6 +87,15 @@ In this step we will download our dataset and extract its features.
         python3 -m venv .venv   # OR  
         python -m venv .venv    # OR  
         c:\Python310\python -m venv c:\path\to\project\folder\.venv  
+        ```
+    2. Activate the virtual environment by running the following command in the root of the project folder:
+        ```bash
+        source .venv\Scripts\activate # For MacOs/Linux
+        .venv\Scripts\activate # For Windows
+        ```
+    3. Install the required packages using the following command:
+        ```bash
+        pip3 install -r requirements.txt
         ```
 5. Open the jupyter notebook file `./ExportFeatures.ipynb`, in your preferred IDE. **We recommend VSCode**
 6. In the upper right corner of the notebook, select the environment as `.venv` if it is currently something else like `Python 3.10 64 bit`.
