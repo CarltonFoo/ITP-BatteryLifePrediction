@@ -13,7 +13,6 @@ This repository will go through the first two steps for this project.
 
 # Table of Contents  
 - [Battery Lifetime Prediction with Advanced Machine Learning](#battery-lifetime-prediction-with-advanced-machine-learning)
-    - [ICT3111 Integrated Team Project, Team 19](#ict3111-integrated-team-project-team-19)
 - [Table of Contents](#table-of-contents)
 - [Requirements](#requirements)
 - [Code-base Structure](#code-base-structure)
@@ -150,8 +149,9 @@ QDiffLinVar     | Linearly Interpolated Var(QD100-QD10)
 <a name="usage"></a>
 
 # Usage
-1. Open the jupyter notebooks for the respective models, DischargeModel or VarianceModel. Ensure the environment is `venv`, and click `Run All` at the top; these notebooks will read from the `./features_combined.csv` file for training data.
-2. Scroll and observe the results. Further explaination of the model can be found within the jupyter notebook as comments. 
+1. Open the jupyter notebooks for the respective models, DischargeModel or VarianceModel. Ensure the environment is `venv`, and click `Run All` at the top; these notebooks will read from the `./data/features_combined.csv` file for training data.
+2. Scroll and observe the results.
+3. Further explaination of the models can be found within the README.md file within the ./vraiance_model or ./discharge_model folders, and within the jupyter notebook as comments.
 
 > ## Special Instructions for Transfer Learning Discharge Model (DischargeModelTransfer.ipynb)
 > `DischargeModel.ipynb` must be executed in its entirety first to generate the base discharge model definition files.  
