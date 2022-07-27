@@ -74,9 +74,16 @@ An environment to open and run Jupyter Notebooks
    |    |
    |    |-- results_compiler.ipynb          # Compiles the data generated from the training and prediction of data in the test runs
    |
-   |-- DischargeModel.ipynb                 # Building and training the Discharge Model using scipy
-   |
-   |-- DischargeModelTF.ipynb               # Building and training the Discharge Model using TensorFlow
+   |-- /discharge_model/
+   |    |
+   |    |-- README.md                       # Contains instructions on how to use the models and adjust settings in the code.
+   |    |
+   |    |-- /saved_model/                   # directory that contains trained TensorFlow base models
+   |    |
+   |    |-- DischargeModel.ipynb            # Building and training the Discharge Model using scikit-learn library.
+   |    |                                   # Also generates and saves the 'fast-charging' and 'normal-charging' base models.
+   |    |
+   |    |-- DischargeModelTransfer.ipynb    # Transfer Learning Experimentation of Discharge Model using TensorFlow
 ```
 
 <br />
