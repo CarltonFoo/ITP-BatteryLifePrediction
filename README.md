@@ -114,7 +114,7 @@ In this step we will download our dataset and extract its features.
         ```bash
         pip3 install -r requirements.txt
         ```
-5. Open the jupyter notebook file `./ExportFeatures.ipynb`, in your preferred IDE. **We recommend VSCode**
+5. Open the jupyter notebook file `./data/ExportFeatures.ipynb`, in your preferred IDE. **We recommend VSCode**
 6. In the upper right corner of the notebook, select the environment as `.venv` if it is currently something else like `Python 3.10 64 bit`.
 7. Click "Run All" at the top. The notebook should check and install required dependencies into the virtual environment, then read the MATLAB data files and extract their flattened features to a new file in the Data folder called `./features_combined.csv`.
 
@@ -123,7 +123,7 @@ In this step we will download our dataset and extract its features.
 <a name="data"></a>
 
 # Data
-Structure of `./featres_combined.csv`. All values are type `int`, except `policy` and `barcode`, which are type `string`.
+Structure of `./data/features_combined.csv`. All values are type `int`, except `policy` and `barcode`, which are type `string`.
 Column          | Description
 --------------- | -------------
 policy          | Charing policy the battery used
@@ -151,7 +151,7 @@ QDiffLinVar     | Linearly Interpolated Var(QD100-QD10)
 # Usage
 1. Open the jupyter notebooks for the respective models, DischargeModel or VarianceModel. Ensure the environment is `venv`, and click `Run All` at the top; these notebooks will read from the `./data/features_combined.csv` file for training data.
 2. Scroll and observe the results.
-3. Further explaination of the models can be found within the README.md file within the ./vraiance_model or ./discharge_model folders, and within the jupyter notebook as comments.
+3. Further explaination of the models can be found within the README.md file within the ./variance_model or ./discharge_model folders, and within the jupyter notebook as comments.
 
 > ## Special Instructions for Transfer Learning Discharge Model (DischargeModelTransfer.ipynb)
 > `DischargeModel.ipynb` must be executed in its entirety first to generate the base discharge model definition files.  
