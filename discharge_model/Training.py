@@ -22,6 +22,9 @@ class Trainer:
             self.train_y,
             epochs=epochs,
             validation_data=self.test_xy,
+            callbacks=[
+                keras.callbacks.EarlyStopping(monitor='val_loss', patience=15, min_delta=0.1)
+            ],
             verbose=0
         )
     def get_history(self):
