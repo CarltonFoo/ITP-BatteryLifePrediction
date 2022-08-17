@@ -23,7 +23,7 @@ class Trainer:
             epochs=epochs,
             validation_data=self.test_xy,
             callbacks=[
-                keras.callbacks.EarlyStopping(monitor='val_loss', patience=15, min_delta=0.1)
+                keras.callbacks.EarlyStopping(monitor='val_loss', patience=5, min_delta=0.1)
             ],
             verbose=0
         )
