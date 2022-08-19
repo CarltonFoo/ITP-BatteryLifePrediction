@@ -1,6 +1,6 @@
 # How to use discharge model
-`DischargeModel.ipynb` must be run first in its entirety to auto-install dependencies and generate base model files. The other two notebooks may be run afterwards in either order.  
-When running `model_tester.ipynb`, you may need to adjust the value of `N_CPUS` so that it is no more than half the number of physically installed CPU cores. The default value of 2 should suffice for the large majority of processors, which usually have at least 4 cores.  
+`DischargeModel.ipynb` must be run first in its entirety to auto-install dependencies and generate base model files. The other four notebooks may be run afterwards in either order.  
+When running `model_tester.ipynb`, `DischargeModelTransferNEW.ipynb` or `DischargeModelTransferNEW3.ipynb`, you may need to adjust the value of `N_CPUS` so that it is no more than half the number of physically installed CPU cores. The default value of 2 should suffice for the large majority of processors, which usually have at least 4 cores.  
 
 <a name="folder"></a>
 
@@ -29,4 +29,8 @@ When running `model_tester.ipynb`, you may need to adjust the value of `N_CPUS` 
    |-- Training.py                     # contains helper functions to enable multi-threaded parallel training of multiple models
    |
    |-- model_tester.ipynb              # automatically re-runs the model building and training process 10 times for transfer models to observe run-to-run variation
+   |
+   |-- DischargeModelTransferNEW.ipynb # same as model_tester.ipynb, but evaluates a modified backwards layered transfer model as requested
+   |
+   |-- DischargeModelTransferNEW3.ipynb# same as model_tester.ipynb, but evaluates a simplified layered transfer model with less weights and FTRL optimizer
 ```
